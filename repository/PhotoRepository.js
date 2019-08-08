@@ -1,10 +1,11 @@
 const mongoose = require('mongoose');
+
 class PhotoRepository {
     constructor () { }
-    save(Photo, cb) {
+    save(Photo) {
         console.log('saving user in the repository" ' + Photo);
         Photo.save(function(mayHaveError){
-            cb(mayHaveError);
+            console.log(mayHaveError);
         });
     }
     //return all records of Photo Table
@@ -22,7 +23,7 @@ class PhotoRepository {
             .exec();
     }*/
     //find Photo by Id Album
-    rechercherParId(id, cb) {
+    rechercherParId(id) {
         console.log('finding user by id: ' + id);
         mongoose.model('Photo').find({"id_album":id}, cb);
     }
@@ -32,7 +33,7 @@ class PhotoRepository {
         mongoose.model('Photo').find({"title":title}, cb);
     }*/
     //delete Photo by Id
-    supprimerParId(id, cb) {
+    supprimerParId(id) {
 
         //  return mongoose.model('User')
         //    .findById(id)
